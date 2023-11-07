@@ -1,0 +1,27 @@
+---
+
+route:
+  receiver: monitoring_opsgenie
+  group_by: ['...']
+  group_wait: '5s'
+  group_interval: '1m'
+  repeat_interval: '5m'
+
+receivers:
+  # - name: blackhole
+
+  - name: monitoring_opsgenie
+    opsgenie_configs:
+    - send_resolved: true
+      http_config:
+        follow_redirects: true
+        enable_http2: true
+      api_key: ...
+      api_url: https://api.opsgenie.com/
+      message: '{{ .CommonAnnotations.summary }}'
+      description: '{{ .CommonAnnotations.description }}'
+      source: '{{ template "opsgenie.default.source" . }}'
+      details:
+        value: '{{ .CommonAnnotations.value }}'
+      entity: '{{ .CommonLabels.alertname }}'
+      priority: '{{ (or (.CommonLabels.alerting_priority) .CommonLabels.priority) }}'

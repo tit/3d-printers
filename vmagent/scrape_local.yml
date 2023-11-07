@@ -1,0 +1,24 @@
+---
+
+- job_name: "klipper"
+  scrape_interval: 5s
+  metrics_path: /probe
+  static_configs:
+    - targets: [ '192.168.31.43:7125' ]
+  params:
+    modules: [
+      "process_stats",
+      "job_queue",
+      "system_info",
+      "network_stats",
+      "directory_info",
+      "printer_objects",
+      "history",
+    ]
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: klipper:9101

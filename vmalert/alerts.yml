@@ -1,0 +1,17 @@
+---
+
+groups:
+- name: test_2m
+  interval: 2m
+  rules:
+  - alert: NomadJobRestarting
+    expr: >-
+      min by (env, service, exported_job, namespace, task, task_group) (
+        increase(nomad_client_allocs_restart[2m])
+      ) > 0
+    for: 6m
+    labels:
+      priority: P2
+    annotations:
+      summary: '[Nomad job {{$labels.exported_job}}]: Job is restarting constantly in the last 10 mins'
+      description: Nomad job is experiencing constant restarts. Check job's logs
