@@ -63,6 +63,8 @@ services:
     networks:
       - vm_net
     restart: on-failure
+    environment:
+      - GF_INSTALL_PLUGINS=innius-video-panel
   # vmalert:
   #   container_name: vmalert
   #   image: victoriametrics/vmalert:${VM_VERSION}

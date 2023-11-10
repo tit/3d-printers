@@ -24,18 +24,88 @@
   "description": "",
   "editable": true,
   "fiscalYearStartMonth": 0,
+  "gnetId": 18467,
   "graphTooltip": 1,
-  "id": 10,
   "links": [],
   "liveNow": false,
   "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P4169E866C3094E38"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 34,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P4169E866C3094E38"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "klipper_total_print_time / 60 / 60",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Panel Title",
+      "type": "stat"
+    },
     {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 30,
       "panels": [],
@@ -82,10 +152,12 @@
         "h": 6,
         "w": 2,
         "x": 0,
-        "y": 1
+        "y": 9
       },
       "id": 33,
       "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -98,7 +170,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.4.7",
+      "pluginVersion": "10.2.0",
       "targets": [
         {
           "datasource": {
@@ -212,6 +284,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -225,6 +298,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineStyle": {
               "fill": "solid"
@@ -267,7 +341,7 @@
         "h": 6,
         "w": 14,
         "x": 2,
-        "y": 1
+        "y": 9
       },
       "id": 32,
       "options": {
@@ -385,6 +459,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -398,6 +473,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -538,7 +614,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 7
+        "y": 15
       },
       "id": 4,
       "options": {
@@ -622,6 +698,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -635,6 +712,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -744,7 +822,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 7
+        "y": 15
       },
       "id": 6,
       "options": {
@@ -841,10 +919,12 @@
         "h": 4,
         "w": 8,
         "x": 0,
-        "y": 15
+        "y": 23
       },
       "id": 14,
       "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -856,7 +936,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.4.7",
+      "pluginVersion": "10.2.0",
       "targets": [
         {
           "datasource": {
@@ -909,10 +989,12 @@
         "h": 4,
         "w": 8,
         "x": 8,
-        "y": 15
+        "y": 23
       },
       "id": 12,
       "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -924,7 +1006,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.4.7",
+      "pluginVersion": "10.2.0",
       "targets": [
         {
           "datasource": {
@@ -949,7 +1031,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 27
       },
       "id": 16,
       "panels": [],
@@ -991,10 +1073,12 @@
         "h": 4,
         "w": 3,
         "x": 0,
-        "y": 20
+        "y": 28
       },
       "id": 8,
       "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -1006,7 +1090,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.4.7",
+      "pluginVersion": "10.2.0",
       "targets": [
         {
           "datasource": {
@@ -1036,6 +1120,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1049,6 +1134,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1130,7 +1216,7 @@
         "h": 8,
         "w": 7,
         "x": 3,
-        "y": 20
+        "y": 28
       },
       "id": 24,
       "options": {
@@ -1199,6 +1285,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1212,6 +1299,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1263,7 +1351,7 @@
         "h": 8,
         "w": 6,
         "x": 10,
-        "y": 20
+        "y": 28
       },
       "id": 28,
       "options": {
@@ -1343,10 +1431,12 @@
         "h": 4,
         "w": 3,
         "x": 0,
-        "y": 24
+        "y": 32
       },
       "id": 22,
       "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -1358,7 +1448,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.4.7",
+      "pluginVersion": "10.2.0",
       "targets": [
         {
           "datasource": {
@@ -1378,10 +1468,9 @@
       "type": "gauge"
     }
   ],
-  "refresh": "5s",
+  "refresh": "1m",
   "revision": 1,
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [
     "sonic pad",
     "Klipper",
@@ -1393,8 +1482,8 @@
       {
         "current": {
           "selected": false,
-          "text": "V400",
-          "value": "V400"
+          "text": "klipper",
+          "value": "klipper"
         },
         "datasource": {
           "type": "prometheus",
@@ -1418,9 +1507,9 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": "localhost:7125",
-          "value": "localhost:7125"
+          "selected": false,
+          "text": "192.168.31.43:7125",
+          "value": "192.168.31.43:7125"
         },
         "datasource": {
           "type": "prometheus",
@@ -1463,7 +1552,6 @@
   "timezone": "",
   "title": "Klipper Dashboard",
   "uid": "3kDqZop4z",
-  "version": 34,
-  "weekStart": "",
-  "gnetId": 18467
+  "version": 1,
+  "weekStart": ""
 }
